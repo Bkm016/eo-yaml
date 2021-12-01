@@ -83,16 +83,16 @@ final class ReadLiteralBlockScalar extends BaseScalar {
         this.previous = previous;
         this.all = lines;
         this.significant = new GreaterIndentation(
-            previous,
-            new Skip(
-                lines,
-                line -> line.number() <= previous.number(),
-                line -> line.trimmed().endsWith("|"),
-                line -> line.trimmed().startsWith("---"),
-                line -> line.trimmed().startsWith("..."),
-                line -> line.trimmed().startsWith("%"),
-                line -> line.trimmed().startsWith("!!")
-            )
+                previous,
+                new Skip(
+                        lines,
+                        line -> line.number() <= previous.number(),
+//                        line -> line.trimmed().endsWith("|"), // 加上这行就会导致连续读取
+                        line -> line.trimmed().startsWith("---"),
+                        line -> line.trimmed().startsWith("..."),
+                        line -> line.trimmed().startsWith("%"),
+                        line -> line.trimmed().startsWith("!!")
+                )
         );
     }
 

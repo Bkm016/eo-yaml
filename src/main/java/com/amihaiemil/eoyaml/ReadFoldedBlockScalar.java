@@ -91,7 +91,7 @@ final class ReadFoldedBlockScalar extends BaseFoldedScalar {
             new Skip(
                 lines,
                 line -> line.number() <= previous.number(),
-                line -> line.trimmed().endsWith(">"),
+//                line -> line.trimmed().endsWith(">"),
                 line -> line.trimmed().startsWith("---"),
                 line -> line.trimmed().startsWith("..."),
                 line -> line.trimmed().startsWith("%"),
